@@ -1,0 +1,84 @@
+<div class="header">
+    <div class="top-bar">
+        <div class="container">
+           <div class="row row-768">
+            <div class="col-md-6 col-768 ">
+                <div class="timework">
+                    <ul class="worktime-ul">
+                        <li class="worktime-li">Work time: Monday - Friday: 08AM-06PM </li>
+                        <li class="worktime-li">Saturday - Sunday: 10AM-06PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-768 ">
+                <div class="user">
+                    <ul class="user-ul">
+                        <li class="user-li">Language<i class="fa-solid fa-chevron-down down-icon"></i>
+                            <ul class="sub-menu">
+                                <li class="sub-li">English</li>
+                                <li class="sub-li">Frances</li>
+                            </ul>
+                        </li>
+
+                        <li class="user-li"  *ngIf="name; else loggedOut" routerLink="/login">Hi {{valuename}}</li>
+                        <li class="user-li"  *ngIf="name; else loggedOutx" (click)="logout()" routerLink="/login">Logout</li>
+                        <ng-template #loggedOut>
+                        <li class="user-li" routerLink="/login">Login</li>
+                        </ng-template>
+                        <ng-template #loggedOutx>
+                            <li class="user-li" routerLink="/register">Register</li>
+                        </ng-template>
+                    </ul>
+                </div>
+            </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="navbar" (scroll)="handleScroll()"
+    [ngClass]="sticky?'sticky1':''" >
+        <div class="container">
+          <nav class="navbar navbar-expand-sm navbar-dark  nav-header"  >
+              <a class="navbar-brand a-img" routerLink="/">
+                <img src="../../../assets/images/logo.png" class="logo-img" alt="">
+              </a>
+              <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa-solid fa-bars bar-icon" style="color: black;font-size: 23px;"></i>
+                </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavId">
+                 
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ul-menu">
+                    <li class="nav-item li-menu active">
+                        <a class="nav-link a-menu a-menu-a "  [ngClass]="sticky?'menu':''" routerLink="">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item li-menu" >
+                        <a class="nav-link a-menu a-menu-a"  routerLink="/about" [ngClass]="sticky?'menu':''">About us</a>
+                    </li>
+                    <li class="nav-item li-menu">
+                        <a class="nav-link a-menu a-menu-a"  routerLink="/shop" [ngClass]="sticky?'menu':''">Shop</a>
+                    </li>
+                    <li class="nav-item li-menu">
+                        <a class="nav-link a-menu a-menu-a"  routerLink="/blogList" [ngClass]="sticky?'menu':''">Blog</a>
+                    </li>
+                    <li class="nav-item li-menu">
+                        <a class="nav-link a-menu a-menu-a"  routerLink="/contact"  [ngClass]="sticky?'menu':''">Contact</a>
+                    </li>
+                    <li class="nav-item li-menu">
+                        <div class="bao" style="position: relative;">
+                            <a class="nav-link a-menu "  routerLink="/cart" [ngClass]="sticky?'menu':''"><i class="fa-solid fa-cart-shopping cart-icon a-menu-icon1"></i></a>
+                            <span class="oss">{{totalQtt | json}}</span>
+                        </div>
+                    </li>
+                    <li class="nav-item li-menu">
+                        <a class="nav-link a-menu a-menu-icon2"  routerLink="/wish-slit" [ngClass]="sticky?'menu':''"><i class="fa-solid fa-regular fa-heart" style="font-size: 20px;"></i></a>
+                    </li>
+                   
+                </ul>
+              </div>
+          </nav>
+        </div>
+    </div>
+   
+</div>

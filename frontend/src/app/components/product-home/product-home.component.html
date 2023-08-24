@@ -1,0 +1,90 @@
+<div class="wrapp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text_product_home">Discover</div>
+        <h2 class="title">Our Products</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-md-3 col-sm-6 product-item"
+        style="margin-top: 20px"
+        *ngFor="let pro of lis"
+      >
+        <div class="product-thumb">
+          <a (click)="showdetail(pro.id)" style="cursor: pointer;" [routerLink]="['shop-detail', pro.id]">
+            <div class="badges">
+              <span class="hot" *ngIf="pro.price == 9">Hot</span>
+              <span class="onsale" *ngIf="pro.sale_price !== 0">Sale!</span>
+            </div>
+            <img  src="{{ pro.image }}" alt="" />
+          </a>
+          <div class="product-action">
+            <span class="add-to-cart">
+              <a
+                (click)="addTocarta(pro)"
+                data-toggle="tooltip"
+                data-placement="top"
+                title=""
+                data-original-title="Add to cart"
+                style="cursor: pointer;"
+              >
+                <i
+                  class="fa-solid fa-cart-shopping"
+                  style="color: #fff; font-size: 19px"
+                ></i>
+              </a>
+            </span>
+            <span class="wishlist">
+              <a
+              (click)="addtowish(pro.id)"
+                style="cursor: pointer;"
+                data-toggle="tooltip"
+                data-placement="top"
+                title=""
+                data-original-title="Add to wishlist"
+                *ngIf="pro.isFavorite"
+              >
+                <i
+                  class="fa-heart fa-solid fa-heart"
+                  style="color: red; font-size: 19px"
+                ></i>
+              </a>
+              <a
+              style="cursor: pointer;"
+              data-toggle="tooltip"
+              data-placement="top"
+              title=""
+              data-original-title="Add to wishlist"
+              (click)="addtowish(pro.id)"
+              *ngIf="!pro.isFavorite"
+            >
+              <i
+                class="fa-heart fa-solid fa-heart"
+                style="color: #fff; font-size: 19px"
+              ></i>
+            </a>
+              
+            </span>
+          </div>
+        </div>
+        <div class="product-info">
+          <a  >
+            <h2 class="titlec" (click)="showdetail(pro.id)" style="cursor: pointer;">{{ pro.name }}</h2>
+            <span class="price">
+              <del *ngIf="pro.sale_price !== 0; then loggedIn; else other">${{pro.price}}.00</del>
+              <ng-template #loggedIn>
+                <del>${{pro.price}}.00</del>
+                <ins>${{pro.sale_price}}.00</ins>
+              </ng-template>
+              <ng-template #other>
+                <ins>${{pro.price}}.00</ins>
+              </ng-template>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

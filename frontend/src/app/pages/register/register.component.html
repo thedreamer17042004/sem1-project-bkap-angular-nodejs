@@ -1,0 +1,82 @@
+<div id="main">
+    <div class="section_register">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="page-title">Register</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ctn" style=" width: 100%;border-bottom: 1px solid #eee;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" style="color: #5e5a54 !important; line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px; text-transform: uppercase;">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style=" line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px;text-transform: uppercase;color: #5fbd74;">Register</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="sectionx_register pt-7 pb-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="commerce">
+                    <h2>Register</h2>
+                    <form class="commerce-login-form" [formGroup]="fSignin" (submit)="onSubmit()"> 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>User Name <span class="required">*</span></label>
+                                <div class="form-wrap">
+                                    <input class="input-login" formControlName="name" type="text" name="name" value="" size="40">
+                                    <div *ngIf="f['name'].dirty && f['name'].errors">
+                                        <small *ngIf="f['name'].errors['required']" style="color: black;">Username is not blank</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label>email address <span class="required">*</span></label>
+                                <div class="form-wrap">
+                                    <input class="input-login" formControlName="email" type="text" name="your-name" value="" size="40">
+                                    <div *ngIf="f['email'].dirty && f['email'].errors">
+                                        <small *ngIf="f['email'].errors['required']" style="color: black;">Email is not blank</small>
+                                        <small *ngIf="f['email'].errors['email']" style="color: black;">Email is not valid email address</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label>Password <span class="required">*</span></label>
+                                <div class="form-wrap">
+                                    <input class="input-login" formControlName="password" type="password" name="password" value="" size="40">
+                                    <div *ngIf="f['password'].dirty && f['password'].errors">
+                                        <small *ngIf="f['password'].errors['required']" style="color: black;">Password is not blank</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"  style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <div class="form-wrap">
+                                    <!-- <input type="submit" class="submit-login" value="Register"> -->
+                                    <button [class]="fSignin.invalid ? 'btn-danger' : 'btn-primary'" [disabled]="fSignin.invalid" type="submit" class="submit-login" value="SignUp">Register</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-12">
+                                <a href="#" class="lost">Lost your password?</a>
+                                <a routerLink="/login" class="lost lostre">Login</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div id="main">
+    <div class="section_wishlist">
+        <div class="row margin_stop">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="page-title">Wishlist</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ctn" style=" width: 100%;border-bottom: 1px solid #eee;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" style="color: #5e5a54 !important; line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px; text-transform: uppercase;">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style=" line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px;text-transform: uppercase;color: #5fbd74;">Wishlist</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+<div class="sectionr pt-7 pb-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="wishlist-wrap">
+                    <table class="table shop-cart">
+                        <thead>
+                            <tr class="cart_item">
+                                <td class="product-remove">&nbsp;</td>
+                                <td class="product-thumbnail">&nbsp;</td>
+                                <td class="product-info">Product Name</td>
+                                <td class="product-subtotal">Unit Price</td>
+                                <td class="product-stock">Stock Status</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cart_item" *ngFor="let da of data">
+                                <td class="product-remove">
+                                    <a  class="remove">×</a>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a href="shop-detail.html">
+                                        <img [src]="da.image" alt="">
+                                    </a>
+                                </td>
+                                <td class="product-info">
+                                    <a href="shop-detail.html">{{da.name}}</a>
+                                    <span class="sub-title">Faucibus Tincidunt</span>
+                                    <span class="amount">${{da.price}}.00</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">${{da.price}}.00</span>
+                                </td>
+                                <td class="product-stock">
+                                    <span class="color_wishlist">In Stock</span>
+                                </td>
+                                <td>
+                                    <a class="organik-btn_wishlist small" href="#"> Add to cart </a>
+                                </td>
+                            </tr>
+                           
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+
+
+
+::ng-deep .owl-carousel .owl-item  {
+    width: 160px !important;
+  }
+  ::ng-deep .owl-prev {
+    position: absolute;
+    top: 31%;
+    left: -10px;
+
+  } 
+  ::ng-deep .owl-next {
+    position: absolute;
+    top: 30%;
+    right: 0px;
+  }
+
+
+ 

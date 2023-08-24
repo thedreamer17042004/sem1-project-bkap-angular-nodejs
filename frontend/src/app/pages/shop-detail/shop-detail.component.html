@@ -1,0 +1,437 @@
+<div id="main">
+    <div class="section_shop_detail">
+        <div class="row margin_stop">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="page-title">Shop Detail</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ctn" style=" width: 100%;border-bottom: 1px solid #eee;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" style="color: #5e5a54 !important; line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px; text-transform: uppercase;">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style=" line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px;text-transform: uppercase;color: #5fbd74;">Shop-Detail</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="sec_shop_detail">
+    <div class="container">
+        <div class="row flex-rev">
+            <div class="col-md-3 xxxx">
+              <div class="left-category">
+                <div class="search-icon_shop">
+                    <input type="text" placeholder="Search product ... ">
+                    <i class="fasearch fa-solid fa-magnifying-glass"></i>
+                </div>
+
+               <div class="categories_shop">
+                <h3 class="pro-title">Product Categories</h3>
+                <div class="category">
+                    <a class="x_shop">Dried</a>
+                    <span class="six">6</span>
+                </div>
+                <div class="category">
+                    <a class="x_shop">Fruits</a>
+                    <span class="six">6</span>
+                </div>
+                <div class="category">
+                    <a class="x_shop">Juice</a>
+                    <span class="six">6</span>
+                </div>
+                <div class="category">
+                    <a class="x_shop">Vegetables</a>
+                    <span class="six">6</span>
+                </div>
+               
+               </div>
+
+
+               <div class="product">
+                <h3 class="pro-title">Product</h3>
+                <ul class="ul-m">
+                    <li>
+                        <a href="#">
+                            <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                            <span>Orange Juice</span>
+                           
+                        </a>
+                        <del>$15.00</del>
+                        <ins>$12.00</ins>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_2.jpg" alt="">
+                            <span>Aurore Grape</span>
+                           
+                        </a>
+                        <ins>$9.00</ins>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                            <span>Blueberry Jam</span>
+                           
+                        </a>
+                        <ins>$15.00</ins>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                            <span>Passionfruit</span>
+                           
+                        </a>
+                        <ins>$35.00</ins>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                            <span>Carrot</span>
+                           
+                        </a>
+                        <ins>$12.00</ins>
+                    </li>
+                   
+                </ul>
+               </div>
+               
+                
+
+               <div class="product-tags">
+                <h3 class="pro-title">Product tags</h3>
+                <div class="tagcloud">
+                    <a href="#">bread</a> 
+                    <a href="#">food</a> 
+                    <a href="#">fruits</a> 
+                    <a href="#">green</a>
+                    <a href="#">healthy</a>
+                    <a href="#">natural</a>
+                    <a href="#">organic store</a>
+                    <a href="#">vegatable</a>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-9 col-md-push-3">
+                <div class="single-product">
+                  <div class="row res_flex">
+                    <div class="col-md-6 flex_coll">
+                        <div class="image-gallery">
+                            <div class="image-gallery-inner slick-initialized slick-slider">
+                                <div class="image-thumb">
+                                    <a>
+                                        <img style="display: block;
+                                        width: 100%;
+                                        height: auto;
+                                        box-shadow: none;
+                                        border: 3px solid #f1eeea;" src="{{ data?.image }}" alt="image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-6 flex_coll">
+                        <div class="summary">
+                            <h1 class="product-title">{{data?.name}}</h1>
+                    
+                            <div class="product-price">
+                              <del *ngIf="data?.sale_price !== 0; then loggedIn; else other">${{data?.price}}.00</del>
+                              <ng-template #loggedIn>
+                                <del>${{data?.price}}.00</del>
+                                <ins>${{data?.sale_price}}.00</ins>
+                              </ng-template>
+                              <ng-template #other>
+                                <ins>${{data?.price}}.00</ins>
+                              </ng-template>
+                            </div>
+                            <div class="mb-3">
+                                <p>Relish the goodness of hand-picked oranges from the finest orchards. Foster a healthy lifestyle with the benefits of oranges. 100 percent orange juice with no added sugar for a healthy you.</p>
+                            </div>
+                            <form class="cart">
+                                <div class="quantity-chooser">
+                                    <div class="quantity">
+                                        <span class="qty-minus" data-min="1"><i class="fa-solid fa-circle-minus" (click)="desc()"></i></span>
+                                        <input type="text" name="quantity" min="1" value="{{amount}}" title="Qty" class="input-text qty text" size="4">
+                                        <span class="qty-plus" data-max=""><i class="fa-solid fa-circle-plus" (click)="incres()"></i></span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="single-add-to-cart" (click)="addTocarta2(data, amount)">ADD TO CART</button>
+                            </form>
+                            <div class="product-tool">
+                                <i class="fa-solid fa-heart fa-heart-icon"></i><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to wishlist"> Browse Wishlist </a>
+                            </div>
+                            <div class="product-meta">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="label">Category</td>
+                                            <td><a href="#" class="jsui">{{nameCategory}}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Share</td>
+                                            <td class="share" >
+                                                <a target="_blank" href="#"><i class="jsui fa-brands fa-facebook"></i></a> 
+                                                <a target="_blank" href="#"><i class="jsui fa-brands fa-twitter"></i></a> 
+                                                <a target="_blank" href="#"><i class="jsui fa-brands fa-google-plus-g"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    <div class="col-md-12">
+                        <div class="commerce-tabs classic">
+                            <a  href="#tab-description" >Description</a>
+                            <div class="tab-content">
+                                <p>
+                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="related">
+                            <div class="related-title">
+                                <div class="text-center mb-1_shop_detail section-pretitle_shop_detail fz-34">Related</div>
+                                <h2 class="text-center section-title_shop_detail mtn-2 fz-24">Products</h2>
+                            </div>
+                            <div class="owl-carousel owl-theme  produc-one" >
+                                 
+
+                                    <div
+                                      class="item product-item"
+                                      style="margin-top: 20px"
+                                  
+                                      
+                                    >
+                                      <div class="product-thumb">
+                                        <a href="#">
+                                          <div class="badges">
+                                            <span class="hot" >Hot</span>
+                                            <!-- <span class="onsale" ></span> -->
+                                          </div>
+                                          <img  src="http://tk-themes.net/html-organik/images/shop/shop_7.jpg" alt="" />
+                                        </a>
+                                        <div class="product-action">
+                                          <span class="add-to-cart">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to cart"
+                                            >
+                                              <i
+                                                class="fa-solid fa-cart-shopping"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                          <span class="wishlist">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to wishlist"
+                                            >
+                                              <i
+                                                class="fa-solid fa-heart"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="product-info">
+                                        <a href="#">
+                                          <h2 class="titlec">Chinese Cabbage</h2>
+                                          <span class="price">
+                                            <del >$32.00</del>
+                                            <ins>$76.00</ins>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="item product-item"
+                                      style="margin-top: 20px"
+                                  
+                                      
+                                    >
+                                      <div class="product-thumb">
+                                        <a href="#">
+                                          <div class="badges">
+                                            <span class="hot" >Hot</span>
+                                            <span class="onsale" >Sale</span>
+                                          </div>
+                                          <img  src="http://tk-themes.net/html-organik/images/shop/shop_8.jpg" alt="" />
+                                        </a>
+                                        <div class="product-action">
+                                          <span class="add-to-cart">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to cart"
+                                            >
+                                              <i
+                                                class="fa-solid fa-cart-shopping"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                          <span class="wishlist">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to wishlist"
+                                            >
+                                              <i
+                                                class="fa-solid fa-heart"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="product-info">
+                                        <a href="#">
+                                          <h2 class="titlec">Tieton Cherry</h2>
+                                          <span class="price">
+                                            <del >$40.00</del>
+                                            <ins>$39.00</ins>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="item product-item"
+                                      style="margin-top: 20px"
+                                  
+                                      
+                                    >
+                                      <div class="product-thumb">
+                                        <a href="#">
+                                          <div class="badges">
+                                            <!-- <span class="hot" >Hot</span> -->
+                                            <!-- <span class="onsale" ></span> -->
+                                          </div>
+                                          <img  src="http://tk-themes.net/html-organik/images/shop/shop_5.jpg" alt="" />
+                                        </a>
+                                        <div class="product-action">
+                                          <span class="add-to-cart">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to cart"
+                                            >
+                                              <i
+                                                class="fa-solid fa-cart-shopping"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                          <span class="wishlist">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to wishlist"
+                                            >
+                                              <i
+                                                class="fa-solid fa-heart"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="product-info">
+                                        <a href="#">
+                                          <h2 class="titlec">Carrot</h2>
+                                          <span class="price">
+                                            <!-- <del >$76.00</del> -->
+                                            <ins>$50.00</ins>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="item product-item"
+                                      style="margin-top: 20px"
+                                  
+                                      
+                                    >
+                                      <div class="product-thumb">
+                                        <a href="#">
+                                          <div class="badges">
+                                            <!-- <span class="hot" >Hot</span> -->
+                                            <!-- <span class="onsale" ></span> -->
+                                          </div>
+                                          <img  src="http://tk-themes.net/html-organik/images/shop/shop_4.jpg" alt="" />
+                                        </a>
+                                        <div class="product-action">
+                                          <span class="add-to-cart">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to cart"
+                                            >
+                                              <i
+                                                class="fa-solid fa-cart-shopping"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                          <span class="wishlist">
+                                            <a
+                                              href="#"
+                                              data-toggle="tooltip"
+                                              data-placement="top"
+                                              title=""
+                                              data-original-title="Add to wishlist"
+                                            >
+                                              <i
+                                                class="fa-solid fa-heart"
+                                                style="color: #fff; font-size: 19px"
+                                              ></i>
+                                            </a>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="product-info">
+                                        <a href="#">
+                                          <h2 class="titlec">PassionFruit</h2>
+                                          <span class="price">
+                                            <!-- <del >$76.00</del> -->
+                                            <ins>$55.00</ins>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+
+                                  
+
+                               
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

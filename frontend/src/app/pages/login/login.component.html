@@ -1,0 +1,71 @@
+<div id="main">
+    <div class="section_login">
+        <div class="row margin_stop">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="page-title">Login</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ctn" style=" width: 100%;border-bottom: 1px solid #eee;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" style="color: #5e5a54 !important; line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px; text-transform: uppercase;">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style=" line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px;text-transform: uppercase;color: #5fbd74;">Login</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="sections_login pt-7 pb-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="commerce">
+                    <h2>Login</h2>
+                    <form class="commerce-login-form"  [formGroup]="fLogin" (submit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>email address <span class="required">*</span></label>
+                                <div class="form-wrap">
+                                    <input class="input-login" type="text" formControlName="email"  name="email" value="" size="40">
+                                    <div *ngIf="f['email'].dirty && f['email'].errors">
+                                        <small *ngIf="f['email'].errors['required']" style="color: black;">Email is not blank</small>
+                                        <small *ngIf="f['email'].errors['email']" style="color: black;">Email is not valid email address</small>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label>Password <span class="required">*</span></label>
+                                <div class="form-wrap">
+                                    <input class="input-login" type="password" formControlName="password"  name="password" value="" size="40">
+                                    <div *ngIf="f['password'].dirty && f['password'].errors">
+                                        <small *ngIf="f['password'].errors['required']" style="color: black;">Password is not blank</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"  style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <div class="form-wrap">
+                                    <!-- <input [disabled]="fLogin.invalid" type="submit" class="submit-login" value="LOGIN" style="cursor: pointer;"> -->
+                                    <button [class]="fLogin.invalid ? 'btn-danger' : 'btn-primary'" [disabled]="fLogin.invalid" type="submit" class="submit-login" value="LOGIN">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-12">
+                                <a href="#" class="lost">Lost your password?</a>
+                                <a routerLink="/register" class="lost lostre">Register</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

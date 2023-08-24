@@ -1,0 +1,207 @@
+<div id="main">
+    <div class="section_shop">
+        <div class="row margin_stop">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="page-title">Shop</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ctn" style=" width: 100%;border-bottom: 1px solid #eee;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" style="color: #5e5a54 !important; line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px; text-transform: uppercase;">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style=" line-height: 25px !important;font-family: 'Lato', sans-serif !important;font-size: 15px;text-transform: uppercase;color: #5fbd74;">Shop</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="sec_shop">
+    <div class="container">
+        <div class="row flex-rev">
+            <div class="col-md-3 xxxx">
+                <div class="left-category">
+                    <div class="search-icon_shop">
+                        <input type="text" placeholder="Search product ... " #searchInput name="productname"(keyup)="searchProduct($event)" >
+                        <i class="fasearch fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
+                        <!-- (click)="submitSearch(searchInput.value)" -->
+                    </div>
+
+                   <div class="categories_shop">
+                    <h3 class="pro-title">Product Categories</h3>
+                    <div class="category" *ngFor="let cat of category">
+                        <a class="x_shop"  style="cursor: pointer;" (click)="getid(cat.id)">{{cat.name}}</a>
+                        <span class="six">{{cat.id}}</span>
+                    </div>
+                   
+                   
+                   </div>
+
+
+                   <div class="product">
+                    <h3 class="pro-title">Product</h3>
+                    <ul class="ul-m">
+                        <li>
+                            <a href="#">
+                                <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                                <span>Orange Juice</span>
+                               
+                            </a>
+                            <del>$15.00</del>
+                            <ins>$12.00</ins>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_2.jpg" alt="">
+                                <span>Aurore Grape</span>
+                               
+                            </a>
+                            <ins>$9.00</ins>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                                <span>Blueberry Jam</span>
+                               
+                            </a>
+                            <ins>$15.00</ins>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                                <span>Passionfruit</span>
+                               
+                            </a>
+                            <ins>$35.00</ins>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="http://tk-themes.net/html-organik/images/shop/thumb/shop_1.jpg" alt="">
+                                <span>Carrot</span>
+                               
+                            </a>
+                            <ins>$12.00</ins>
+                        </li>
+                       
+                    </ul>
+                   </div>
+                   
+                    
+
+                   <div class="product-tags">
+                    <h3 class="pro-title">Product tags</h3>
+                    <div class="tagcloud">
+                        <a href="#">bread</a> 
+                        <a href="#">food</a> 
+                        <a href="#">fruits</a> 
+                        <a href="#">green</a>
+                        <a href="#">healthy</a>
+                        <a href="#">natural</a>
+                        <a href="#">organic store</a>
+                        <a href="#">vegatable</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-md-push-3">
+                <div class="shop-filter">
+                    <div class="col-md-6">
+                        <p class="result-count"> Showing {{id}} result by category</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="shop-filter-right">
+                           
+                            <form class="commerce-ordering">
+                                <select name="orderby" class="orderby" id="idd" >
+                                    <option value="all">Sort By</option>
+                                    <option value="name asc">Sort by name A - Z</option>
+                                    <option value="name desc">Sort by name Z - A</option>
+                                    <option value="price asc">Sort by price: low to high</option>
+                                    <option value="price desc">Sort by price: high to low</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                                 
+
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let dat of data">
+                            <div
+                      class="item product-item"
+                      style="margin-top: 20px"
+                      
+                    >
+                      <div class="product-thumb">
+                        <a (click)="showdetail(dat.id)" style="cursor: pointer;" [routerLink]="['shop-detail', dat.id]">
+                          <div class="badges">
+                            <span class="hot" *ngIf="dat.price == 9">Hot</span>
+                            <span class="onsale" *ngIf="dat.sale_price !== 0">Sale!</span>
+                          </div>
+                          <img [src]="dat.image" alt="" />
+                        </a>
+                        <div class="product-action">
+                          <span class="add-to-cart">
+                            <a
+                            (click)="addTocarta(dat)"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title=""
+                              data-original-title="Add to cart"
+                              style="cursor: pointer;"
+                            >
+                              <i
+                                class="fa-solid fa-cart-shopping"
+                                style="color: #fff; font-size: 19px"
+                              ></i>
+                            </a>
+                          </span>
+                          <span class="wishlist">
+                            <a
+                              href="#"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title=""
+                              data-original-title="Add to wishlist"
+                            >
+                              <i
+                                class="fa-solid fa-heart"
+                                style="color: #fff; font-size: 19px"
+                              ></i>
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="product-info">
+                        <a href="#">
+                          <h2 class="titlec">{{dat.name}}</h2>
+                          <span class="price">
+                            <del *ngIf="dat.sale_price !== 0; then loggedIn; else other">${{dat.price}}.00</del>
+                            <ng-template #loggedIn>
+                              <del>${{dat.price}}.00</del>
+                              <ins>${{dat.sale_price}}.00</ins>
+                            </ng-template>
+                            <ng-template #other>
+                              <ins>${{dat.price}}.00</ins>
+                            </ng-template>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                    <div class="pagination"> 
+                        <a class="prev page-numbers" href="#">Prev</a>
+                        <a class="page-numbers" href="#">1</a>
+                        <span class="page-numbers current">2</span> 
+                        <a class="page-numbers" href="#">3</a> 
+                        <a class="next page-numbers" href="#">Next</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
