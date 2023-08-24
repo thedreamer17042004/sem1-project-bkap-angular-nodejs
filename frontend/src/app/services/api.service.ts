@@ -21,6 +21,9 @@ export class ApiService {
 
 
 
+  deletFavorite(id:any){
+    return this.http.delete(`${_api}/vege/deleteFavorite/${id}`);
+  }
   getAllProductFavorite(){
     return this.http.get(`${_api}/vege/productFa`);
   }

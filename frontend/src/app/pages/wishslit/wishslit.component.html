@@ -36,9 +36,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cart_item" *ngFor="let da of data">
+                            <tr class="cart_item" *ngFor="let da of data;let index = index">
                                 <td class="product-remove">
-                                    <a  class="remove">×</a>
+                                    <a style="cursor: pointer;" (click)="removeItem(index, da.id)" class="remove">×</a>
                                 </td>
                                 <td class="product-thumbnail">
                                     <a href="shop-detail.html">

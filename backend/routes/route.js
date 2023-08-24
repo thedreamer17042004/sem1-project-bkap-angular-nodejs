@@ -31,6 +31,7 @@ router.get('/category', category.getCategoryAll);
 
 // favorite
 router.post('/favorite', product.favoriteFn)
+router.delete('/deleteFavorite/:id', product.deleteFavorite)
 
 
 

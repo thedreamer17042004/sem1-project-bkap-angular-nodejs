@@ -205,10 +205,25 @@ const  favoriteFn = (req, res) => {
         }
     });
 }
+const  deleteFavorite = (req, res) => {
+    const body = req.params.id;
+    var sql = "DELETE FROM favourite WHERE product_id = ?;"
+    connection.query(sql, body, (error, result) => {
+        if(!error) {
+            res.json({
+                message: "Thanh cong xoa",
+                result: result
+            })
+        }else {
+            res.json("Loi roi 3")
+        }
+    });
+}
 module.exports = {updateProduct,
     productCtrler,searchProduct,
     deleteProduct, 
     Addproduct,productDetailsLastestCtrler,
      productDetailsCtrler,productAll
     ,countPro,orderbyProd,
-    favoriteFn,productAllTEST};
+    favoriteFn,productAllTEST,
+    deleteFavorite};
